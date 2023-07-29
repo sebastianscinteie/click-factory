@@ -10,9 +10,11 @@ function Square(){
   function incrementResources() {
     let [c, m, y] = [cyan, magenta, yellow]
 
-    if(c + 1 == 4) {
+    const maxOfOneResource = 7;
+
+    if(c + 1 == maxOfOneResource) {
       c = 0;
-      if(m + 1 == 4) {
+      if(m + 1 == maxOfOneResource) {
         m = 0;
         y++;
       } else {
@@ -49,10 +51,10 @@ function Square(){
   }
 
   return <>
-    <div className='bg-slate-400 rounded-lg hover:shadow-2xl m-10 p-5 w-60 h-60 cursor-pointer' 
+    <div className='transition-shadow ease-linear duration-300 bg-slate-400 rounded-lg hover:shadow-2xl m-10 p-5 w-60 h-60 cursor-pointer' 
       onClick={incrementResources}
     >
-      <div className='inline-grid grid-cols-5'>
+      <div className='inline-grid grid-cols-6'>
         {buildResourceArray()}
       </div>
     </div>
