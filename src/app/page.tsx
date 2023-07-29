@@ -49,7 +49,9 @@ function Square(){
   }
 
   return <>
-    <div className='bg-slate-400 rounded-lg hover:shadow-2xl m-10 p-5 w-60 h-60' onClick={incrementResources}>
+    <div className='bg-slate-400 rounded-lg hover:shadow-2xl m-10 p-5 w-60 h-60 cursor-pointer' 
+      onClick={incrementResources}
+    >
       <div className='inline-grid grid-cols-5'>
         {buildResourceArray()}
       </div>
