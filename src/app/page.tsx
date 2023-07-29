@@ -1,8 +1,15 @@
 import Image from 'next/image'
 
 function Square(){
+
   return <>
-    <div className='bg-slate-400 rounded shadow-2xl m-10 w-60 h-60'></div>
+    <div className='bg-slate-400 rounded-lg shadow-2xl m-10 p-5 w-60 h-60'>
+      <div className='inline-grid grid-cols-5'>
+        <div className='bg-cyan-400 rounded-full shadow-xl w-5 h-5 m-1 p-3'></div>
+        <div className='bg-purple-600 rounded-full shadow-xl w-5 h-5 m-1 p-3'></div>
+        <div className='bg-yellow-400 rounded-full shadow-xl w-5 h-5 m-1 p-3'></div>
+      </div>
+    </div>
   </>
 }
 
