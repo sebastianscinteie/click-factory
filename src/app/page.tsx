@@ -51,7 +51,7 @@ function Square(){
   }
 
   return <>
-    <div className='transition-shadow ease-linear duration-300 bg-slate-400 rounded-lg hover:shadow-2xl m-10 p-5 w-60 h-60 cursor-pointer' 
+    <div className='transition ease-linear duration-300 bg-slate-400 rounded-lg hover:shadow-2xl m-10 p-5 w-60 h-60 hover:scale-[1.01] cursor-pointer' 
       onClick={incrementResources}
     >
       <div className='inline-grid grid-cols-6'>
