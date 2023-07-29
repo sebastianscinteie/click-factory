@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Color from "./components/color";
 
 function Square(){
   const [cyan, setCyan] = useState(0);
@@ -29,29 +30,43 @@ function Square(){
     setYellow(y);
   }
 
+  function destroyElement(color:string){
+    let [c, m, y] = [cyan, magenta, yellow]
+    if (color = 'cyan'){
+      c && c--
+    } else if (color = 'magenta') {
+      m && m--
+    } else {
+      y && y--
+    }
+  
+    setCyan(c);
+    setMagenta(m);
+    setYellow(y);
+  }
+
   function buildResourceArray(){
     let [c, m, y] = [cyan, magenta, yellow]
     
-    const yArr = []
+    const retArr = []
     for (let i = 0; i < y; i++) {
-      yArr.push(<div className='bg-yellow-400 rounded-full shadow-xl w-5 h-5 m-1 p-3' key={i}></div>)
+      retArr.push(<Color color='yellow' destroyElement={destroyElement} key={i}/>)
     }
 
-    const mArr = []
     for (let i = 0; i < m; i++) {
-      mArr.push(<div className='bg-purple-600 rounded-full shadow-xl w-5 h-5 m-1 p-3' key={y + i}></div>)
+      retArr.push(<Color color='magenta' destroyElement={destroyElement} key={50 + i}/>) // there can be max 36 yellow      
     }
 
-    const cArr = []
     for (let i = 0; i < c; i++) {
-      cArr.push(<div className='bg-cyan-400 rounded-full shadow-xl w-5 h-5 m-1 p-3' key={y + m + i}></div>)
+      retArr.push(<Color color='cyan' destroyElement={destroyElement} key={100 + i}/>) // max 6 magenta
     }
 
-    return yArr.concat(mArr).concat(cArr);
+    return retArr;
   }
 
   return <>
-    <div className='transition ease-linear bg-slate-400 rounded-lg hover:shadow-2xl m-10 p-5 w-60 h-60 hover:scale-[1.01] cursor-pointer' 
+    <div>{cyan} {magenta} {yellow}</div>
+    <div className='transition ease-linear bg-slate-400 rounded-lg hover:shadow-xl m-10 p-5 w-60 h-60 hover:scale-[1.01] cursor-pointer' 
       onClick={incrementResources}
     >
       <div className='inline-grid grid-cols-6'>
